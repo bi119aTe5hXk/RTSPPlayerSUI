@@ -1,2 +1,2 @@
 # RTSP4Player
-Play 4 RTSP stream on your AppleTV
+Play 1~16 RTSP stream on your AppleTV
