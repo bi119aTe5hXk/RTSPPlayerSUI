@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		1FC9831965BD431FE6B0CB1E /* libPods-RTSP4Player.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D119B1EAF325FDDEE2530510 /* libPods-RTSP4Player.a */; };
 		4724DBBC2A1F208900137F05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4724DBBB2A1F208900137F05 /* AppDelegate.swift */; };
-		4724DBBE2A1F208900137F05 /* StreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4724DBBD2A1F208900137F05 /* StreamViewController.swift */; };
+		4724DBBE2A1F208900137F05 /* Stream4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4724DBBD2A1F208900137F05 /* Stream4ViewController.swift */; };
 		4724DBC12A1F208900137F05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4724DBBF2A1F208900137F05 /* Main.storyboard */; };
 		4724DBC32A1F208B00137F05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4724DBC22A1F208B00137F05 /* Assets.xcassets */; };
 		4724DBC62A1F208B00137F05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4724DBC42A1F208B00137F05 /* LaunchScreen.storyboard */; };
 		4761DB3F2A208422000810B3 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4761DB3E2A208422000810B3 /* SettingViewController.swift */; };
+		4761DBA02A20AF5C000810B3 /* Stream1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4761DB9F2A20AF5C000810B3 /* Stream1ViewController.swift */; };
+		4761DBA22A20AF70000810B3 /* Stream16ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4761DBA12A20AF70000810B3 /* Stream16ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4724DBB82A1F208900137F05 /* RTSP4Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RTSP4Player.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4724DBBB2A1F208900137F05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4724DBBD2A1F208900137F05 /* StreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamViewController.swift; sourceTree = "<group>"; };
+		4724DBBD2A1F208900137F05 /* Stream4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stream4ViewController.swift; sourceTree = "<group>"; };
 		4724DBC02A1F208900137F05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4724DBC22A1F208B00137F05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4724DBC52A1F208B00137F05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4761DB3E2A208422000810B3 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		4761DB9F2A20AF5C000810B3 /* Stream1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stream1ViewController.swift; sourceTree = "<group>"; };
+		4761DBA12A20AF70000810B3 /* Stream16ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stream16ViewController.swift; sourceTree = "<group>"; };
 		479C1C192A1F33F5001E96E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B7C6FD0A82E4F4E069DEBC89 /* Pods-RTSP4Player.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTSP4Player.release.xcconfig"; path = "Target Support Files/Pods-RTSP4Player/Pods-RTSP4Player.release.xcconfig"; sourceTree = "<group>"; };
 		D119B1EAF325FDDEE2530510 /* libPods-RTSP4Player.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RTSP4Player.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,7 +70,9 @@
 				479C1C192A1F33F5001E96E1 /* Info.plist */,
 				4724DBBB2A1F208900137F05 /* AppDelegate.swift */,
 				4761DB3E2A208422000810B3 /* SettingViewController.swift */,
-				4724DBBD2A1F208900137F05 /* StreamViewController.swift */,
+				4761DB9F2A20AF5C000810B3 /* Stream1ViewController.swift */,
+				4724DBBD2A1F208900137F05 /* Stream4ViewController.swift */,
+				4761DBA12A20AF70000810B3 /* Stream16ViewController.swift */,
 				4724DBBF2A1F208900137F05 /* Main.storyboard */,
 				4724DBC22A1F208B00137F05 /* Assets.xcassets */,
 				4724DBC42A1F208B00137F05 /* LaunchScreen.storyboard */,
@@ -206,8 +212,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4724DBBE2A1F208900137F05 /* StreamViewController.swift in Sources */,
+				4724DBBE2A1F208900137F05 /* Stream4ViewController.swift in Sources */,
 				4724DBBC2A1F208900137F05 /* AppDelegate.swift in Sources */,
+				4761DBA02A20AF5C000810B3 /* Stream1ViewController.swift in Sources */,
+				4761DBA22A20AF70000810B3 /* Stream16ViewController.swift in Sources */,
 				4761DB3F2A208422000810B3 /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
