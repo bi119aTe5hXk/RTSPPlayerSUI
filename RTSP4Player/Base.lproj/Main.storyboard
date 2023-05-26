@@ -83,6 +83,82 @@
             </objects>
             <point key="canvasLocation" x="1919" y="-74"/>
         </scene>
+        <!--Stream9 View Controller-->
+        <scene sceneID="OhE-vh-vs0">
+            <objects>
+                <viewController storyboardIdentifier="Stream9ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="P2W-lf-Nbh" customClass="Stream9ViewController" customModule="RTSP4Player" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EaZ-bG-KGO"/>
+                        <viewControllerLayoutGuide type="bottom" id="OGk-FP-Seh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vN1-lg-fns">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OnL-HO-kIE">
+                                <rect key="frame" x="0.0" y="0.0" width="640" height="360"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Fo-O4-l8C">
+                                <rect key="frame" x="0.0" y="360" width="640" height="360"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Jk-pW-JjR">
+                                <rect key="frame" x="0.0" y="720" width="640" height="360"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wHU-AN-Ncl">
+                                <rect key="frame" x="640" y="0.0" width="640" height="360"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ck4-Fi-O7r">
+                                <rect key="frame" x="640" y="360" width="640" height="360"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OOw-lx-fVG">
+                                <rect key="frame" x="640" y="720" width="640" height="360"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Znc-BW-Wss">
+                                <rect key="frame" x="1279" y="0.0" width="640" height="360"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7fd-Vi-DYm">
+                                <rect key="frame" x="1280" y="360" width="640" height="360"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2C4-vW-lkk">
+                                <rect key="frame" x="1279" y="720" width="640" height="360"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="k8B-b0-ppI"/>
+                    </view>
+                    <connections>
+                        <outlet property="movieView1" destination="OnL-HO-kIE" id="jrx-Va-T2z"/>
+                        <outlet property="movieView2" destination="wHU-AN-Ncl" id="Unb-rj-XPC"/>
+                        <outlet property="movieView3" destination="Znc-BW-Wss" id="CWm-At-kgo"/>
+                        <outlet property="movieView4" destination="4Fo-O4-l8C" id="Mzv-7w-nad"/>
+                        <outlet property="movieView5" destination="ck4-Fi-O7r" id="GYL-5E-Vlk"/>
+                        <outlet property="movieView6" destination="7fd-Vi-DYm" id="fG4-uZ-vp9"/>
+                        <outlet property="movieView7" destination="6Jk-pW-JjR" id="CDZ-3X-8IR"/>
+                        <outlet property="movieView8" destination="OOw-lx-fVG" id="Vr1-U4-Acf"/>
+                        <outlet property="movieView9" destination="2C4-vW-lkk" id="4LT-1Y-UP9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dyb-p6-CuY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4154" y="-74"/>
+        </scene>
         <!--Stream16 View Controller-->
         <scene sceneID="8oD-bJ-vVS">
             <objects>
@@ -199,7 +275,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O8i-eS-ges" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4185" y="-74"/>
+            <point key="canvasLocation" x="6464" y="-74"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="7ih-G6-mRR">

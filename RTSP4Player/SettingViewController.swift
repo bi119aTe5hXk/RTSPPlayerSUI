@@ -115,7 +115,15 @@ class SettingViewController: UIViewController{
             stream4VC.urlArray = arrCopy
             present(stream4VC, animated: true)
             
-        }else{
+        }
+        else if itemCount > 4 && itemCount <= 9{
+            print("9 view")
+            let stream9VC = storyboard?.instantiateViewController(identifier: "Stream9ViewController") as! Stream9ViewController
+            stream9VC.urlArray = arrCopy
+            present(stream9VC, animated: true)
+            
+        }
+        else{
             print("16 view")
             let stream16VC = storyboard?.instantiateViewController(identifier: "Stream16ViewController") as! Stream16ViewController
             stream16VC.urlArray = arr
