@@ -76,12 +76,14 @@ struct SettingsView: View {
                             TextField("URL\(i + 1)", text: $urlArr[i])
                                 .padding(0)
                                 .contentShape(Rectangle())
+#if !os(tvOS)
                             Button(action: {
                                 userDef.saveURLArray(arr: getStringListSorted(array: urlArr))
                                 self.selectedFeed = self.urlArr[i]
                             }, label: {
                                 Image(systemName: "play.circle")
                             })
+#endif
                         }
                     }
                 }
