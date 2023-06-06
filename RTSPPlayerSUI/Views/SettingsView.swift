@@ -52,7 +52,7 @@ struct SettingsView: View {
                                   }))
                         }
 
-#if os(tvOS) || os(iOS)
+//#if os(tvOS) || os(iOS)
                         .sheet(isPresented: $presentSteam1View, content: {
                             Stream1View(urlArr: urlArr)
                         })
@@ -65,9 +65,9 @@ struct SettingsView: View {
                         .sheet(isPresented: $presentSteam16View, content: {
                             Stream16View(urlArr: urlArr)
                         })
-#endif
-#if os(macOS)
-#endif
+//#endif
+//#if os(macOS)
+//#endif
                 }//H
                 // feed list
                 List {
