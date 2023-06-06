@@ -14,7 +14,7 @@
 		473CFB6C2A2DD8750076F5DD /* UD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473CFB6B2A2DD8750076F5DD /* UD.swift */; };
 		473CFB842A2E38990076F5DD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473CFB832A2E38990076F5DD /* Utils.swift */; };
 		473CFB862A2E3DD80076F5DD /* Stream1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473CFB852A2E3DD80076F5DD /* Stream1View.swift */; };
-		473CFB892A2E488E0076F5DD /* VLCKitSPM in Frameworks */ = {isa = PBXBuildFile; productRef = 473CFB882A2E488E0076F5DD /* VLCKitSPM */; };
+		473CFB892A2E488E0076F5DD /* VLCKitSPM in Frameworks */ = {isa = PBXBuildFile; productRef = 473CFB882A2E488E0076F5DD /* VLCKitSPM */; settings = {ATTRIBUTES = (Required, ); }; };
 		473CFB8B2A2E49760076F5DD /* VLCPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473CFB8A2A2E49760076F5DD /* VLCPlayerView.swift */; };
 		473CFB912A2F04240076F5DD /* Stream4View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473CFB902A2F04240076F5DD /* Stream4View.swift */; };
 		473CFB932A2F069E0076F5DD /* Stream9View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473CFB922A2F069E0076F5DD /* Stream9View.swift */; };
@@ -71,12 +71,7 @@
 				473CFB5C2A2DD8630076F5DD /* RTSPPlayerSUIApp.swift */,
 				473CFB6B2A2DD8750076F5DD /* UD.swift */,
 				473CFB832A2E38990076F5DD /* Utils.swift */,
-				473CFB8A2A2E49760076F5DD /* VLCPlayerView.swift */,
-				473CFB5E2A2DD8630076F5DD /* SettingsView.swift */,
-				473CFB852A2E3DD80076F5DD /* Stream1View.swift */,
-				473CFB902A2F04240076F5DD /* Stream4View.swift */,
-				473CFB922A2F069E0076F5DD /* Stream9View.swift */,
-				473CFB942A2F08030076F5DD /* Stream16View.swift */,
+				473CFB962A2F12570076F5DD /* Views */,
 				473CFB602A2DD8650076F5DD /* Assets.xcassets */,
 				473CFB622A2DD8650076F5DD /* RTSPPlayerSUI.entitlements */,
 				473CFB632A2DD8650076F5DD /* Preview Content */,
@@ -90,6 +85,19 @@
 				473CFB642A2DD8650076F5DD /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		473CFB962A2F12570076F5DD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				473CFB8A2A2E49760076F5DD /* VLCPlayerView.swift */,
+				473CFB5E2A2DD8630076F5DD /* SettingsView.swift */,
+				473CFB852A2E3DD80076F5DD /* Stream1View.swift */,
+				473CFB902A2F04240076F5DD /* Stream4View.swift */,
+				473CFB922A2F069E0076F5DD /* Stream9View.swift */,
+				473CFB942A2F08030076F5DD /* Stream16View.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
