@@ -80,6 +80,10 @@ struct SettingsView: View {
                        content: {
                     Stream9View(urlArr: urlArr)
                 })
+                .sheet(isPresented: $presentSteam16View,
+                       content: {
+                    Stream16View(urlArr: urlArr)
+                })
 
         }
         List{
