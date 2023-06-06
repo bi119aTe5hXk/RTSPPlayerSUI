@@ -14,19 +14,37 @@ struct Stream9View: View {
         
         HStack(spacing: 0){
             VStack(spacing: 0){
-                VLCPlayerView(mediaUrl: $urlArr[0])
-                VLCPlayerView(mediaUrl: $urlArr[1])
-                VLCPlayerView(mediaUrl: $urlArr[2])
+                if urlArr.count >= 1{
+                    VLCPlayerView(mediaUrl: $urlArr[0])
+                }
+                if urlArr.count >= 2{
+                    VLCPlayerView(mediaUrl: $urlArr[1])
+                }
+                if urlArr.count >= 3{
+                    VLCPlayerView(mediaUrl: $urlArr[2])
+                }
             }
             VStack(spacing: 0){
-                VLCPlayerView(mediaUrl: $urlArr[3])
-                VLCPlayerView(mediaUrl: $urlArr[4])
-                VLCPlayerView(mediaUrl: $urlArr[5])
+                if urlArr.count >= 4{
+                    VLCPlayerView(mediaUrl: $urlArr[3])
+                }
+                if urlArr.count >= 5{
+                    VLCPlayerView(mediaUrl: $urlArr[4])
+                }
+                if urlArr.count >= 6{
+                    VLCPlayerView(mediaUrl: $urlArr[5])
+                }
             }
             VStack(spacing: 0){
-                VLCPlayerView(mediaUrl: $urlArr[6])
-                VLCPlayerView(mediaUrl: $urlArr[7])
-                VLCPlayerView(mediaUrl: $urlArr[8])
+                if urlArr.count >= 7{
+                    VLCPlayerView(mediaUrl: $urlArr[6])
+                }
+                if urlArr.count >= 8{
+                    VLCPlayerView(mediaUrl: $urlArr[7])
+                }
+                if urlArr.count >= 9{
+                    VLCPlayerView(mediaUrl: $urlArr[8])
+                }
             }
         }.padding(0)
             .edgesIgnoringSafeArea(.all)

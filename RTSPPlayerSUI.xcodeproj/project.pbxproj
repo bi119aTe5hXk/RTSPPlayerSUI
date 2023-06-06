@@ -35,6 +35,7 @@
 		473CFB902A2F04240076F5DD /* Stream4View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stream4View.swift; sourceTree = "<group>"; };
 		473CFB922A2F069E0076F5DD /* Stream9View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stream9View.swift; sourceTree = "<group>"; };
 		473CFB942A2F08030076F5DD /* Stream16View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stream16View.swift; sourceTree = "<group>"; };
+		473CFB972A2F25C50076F5DD /* RTSPPlayer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "RTSPPlayer-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +53,7 @@
 		473CFB502A2DD8630076F5DD = {
 			isa = PBXGroup;
 			children = (
+				473CFB972A2F25C50076F5DD /* RTSPPlayer-Info.plist */,
 				473CFB5B2A2DD8630076F5DD /* RTSPPlayerSUI */,
 				473CFB5A2A2DD8630076F5DD /* Products */,
 			);
@@ -314,6 +316,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "RTSPPlayer-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = RTSPPlayer;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.video";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -334,9 +337,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.bi119aTe5hXk.RTSP4Player;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = YES;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3";
@@ -357,6 +360,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "RTSPPlayer-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = RTSPPlayer;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.video";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -377,9 +381,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.bi119aTe5hXk.RTSP4Player;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = YES;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3";

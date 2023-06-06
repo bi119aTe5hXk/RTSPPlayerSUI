@@ -8,89 +8,105 @@
 import SwiftUI
 
 struct SettingsView: View {
-    var userDef:UD
-    @State var urlArr:[String]
+    var userDef: UD
+    @State var urlArr: [String]
+    @State private var selectedFeed = ""
     @State private var emptyAlert = false
-    
+
     @State private var presentSteam1View = false
     @State private var presentSteam4View = false
     @State private var presentSteam9View = false
     @State private var presentSteam16View = false
-    
+
     init() {
         userDef = UD()
         urlArr = userDef.readURLArray()
-        //print(urlArr)
+        // print(urlArr)
     }
-    var body: some View {
-        HStack{
-            
-            Button(action: {
-                urlArr.append("")
-            }, label: {
-                Image(systemName: "plus.app")
-            })
-            .foregroundColor(.blue)
-            .padding(5)
-            .frame(maxWidth:
-                    .infinity,
-                   alignment:
-                    .leading)
-            .disabled(urlArr.count >= 16)
-            
-            Button (action: {
-                userDef.saveURLArray(arr: getStringListSorted(array: urlArr))
-                
-                let itemCount = getStringArrayCount(array: urlArr)
-                urlArr = getStringListSorted(array: urlArr)
-                
-                if (itemCount <= 0){
-                    emptyAlert = true
-                }else if(itemCount == 1){
-                    presentSteam1View.toggle()
-                }else if(itemCount <= 4){
-                    presentSteam4View.toggle()
-                }else if(itemCount <= 9){
-                    presentSteam9View.toggle()
-                }else{
-                    presentSteam16View.toggle()
-                }
-            },label: {
-                Image(systemName: "play.square")
-            }).padding(5)
-                .frame(maxWidth:
-                        .infinity,
-                       alignment:
-                        .trailing)
-            
-                .alert(isPresented: $emptyAlert) {
-                    Alert(title: Text("At least one URL is required."),
-                          dismissButton: .default(Text("OK"), action: {
-                          }))
-                }
-                .sheet(isPresented: $presentSteam1View,
-                       content: {
-                    Stream1View(urlArr: urlArr)
-                })
-                .sheet(isPresented: $presentSteam4View,
-                       content: {
-                    Stream4View(urlArr: urlArr)
-                })
-                .sheet(isPresented: $presentSteam9View,
-                       content: {
-                    Stream9View(urlArr: urlArr)
-                })
-                .sheet(isPresented: $presentSteam16View,
-                       content: {
-                    Stream16View(urlArr: urlArr)
-                })
 
-        }
-        List{
-            ForEach(self.urlArr.indices, id: \.self) { i in
-                TextField("URL\(i + 1)", text: $urlArr[i])
-                    .padding(5)
+    var body: some View {
+        NavigationView {
+            VStack {
+                HStack {
+                    // add feed button
+                    Button(action: {
+                        urlArr.append("")
+                    }, label: {
+                        Image(systemName: "plus.app")
+                    }).padding(5)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .disabled(urlArr.count >= 16)
+
+                    // play all button
+                    Button(action: {
+                        userDef.saveURLArray(arr: getStringListSorted(array: urlArr))
+                        playAll()
+                    }, label: {
+                        Image(systemName: "play.rectangle")
+                    }).padding(5)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+
+                        .alert(isPresented: $emptyAlert) {
+                            Alert(title: Text("At least one URL is required."),
+                                  dismissButton: .default(Text("OK"), action: {
+                                  }))
+                        }
+
+#if os(tvOS) || os(iOS)
+                        .sheet(isPresented: $presentSteam1View, content: {
+                            Stream1View(urlArr: urlArr)
+                        })
+                        .sheet(isPresented: $presentSteam4View, content: {
+                            Stream4View(urlArr: urlArr)
+                        })
+                        .sheet(isPresented: $presentSteam9View, content: {
+                            Stream9View(urlArr: urlArr)
+                        })
+                        .sheet(isPresented: $presentSteam16View, content: {
+                            Stream16View(urlArr: urlArr)
+                        })
+#endif
+#if os(macOS)
+#endif
+                }//H
+                // feed list
+                List {
+                    ForEach(self.urlArr.indices, id: \.self) { i in
+                        HStack {
+                            TextField("URL\(i + 1)", text: $urlArr[i])
+                                .padding(0)
+                                .contentShape(Rectangle())
+                            Button(action: {
+                                userDef.saveURLArray(arr: getStringListSorted(array: urlArr))
+                                self.selectedFeed = self.urlArr[i]
+                            }, label: {
+                                Image(systemName: "play.circle")
+                            })
+                        }
+                    }
+                }
+            }//V
+
+            if !self.selectedFeed.isEmpty {
+                Stream1View(urlArr: [self.selectedFeed])
             }
+        }.toolbar(.hidden)
+    }
+    
+    func playAll(){
+        let itemCount = getStringArrayCount(array: self.urlArr)
+        self.urlArr = getStringListSorted(array: self.urlArr)
+
+        if itemCount <= 0 {
+            self.emptyAlert = true
+        } else if itemCount == 1 {
+            self.presentSteam1View.toggle()
+        } else if itemCount <= 4 {
+            self.presentSteam4View.toggle()
+        } else if itemCount <= 9 {
+            self.presentSteam9View.toggle()
+        } else {
+            self.presentSteam16View.toggle()
         }
     }
 }

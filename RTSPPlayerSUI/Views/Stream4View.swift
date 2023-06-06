@@ -13,12 +13,20 @@ struct Stream4View: View {
     var body: some View {
         HStack(spacing: 0){
             VStack(spacing: 0){
-                VLCPlayerView(mediaUrl: $urlArr[0])
-                VLCPlayerView(mediaUrl: $urlArr[1])
+                if urlArr.count >= 1{
+                    VLCPlayerView(mediaUrl: $urlArr[0])
+                }
+                if urlArr.count >= 2{
+                    VLCPlayerView(mediaUrl: $urlArr[1])
+                }
             }
             VStack(spacing: 0){
-                VLCPlayerView(mediaUrl: $urlArr[2])
-                VLCPlayerView(mediaUrl: $urlArr[3])
+                if urlArr.count >= 3{
+                    VLCPlayerView(mediaUrl: $urlArr[2])
+                }
+                if urlArr.count >= 4{
+                    VLCPlayerView(mediaUrl: $urlArr[3])
+                }
             }
         }.padding(0)
             .edgesIgnoringSafeArea(.all)

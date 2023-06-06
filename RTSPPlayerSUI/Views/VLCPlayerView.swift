@@ -10,7 +10,7 @@ import SwiftUI
 import VLCKitSPM
 
 import SwiftUI
-
+#if os(iOS) || os(tvOS)
 struct VLCPlayerView: UIViewRepresentable {
 
     @Binding var mediaUrl: String?
@@ -35,11 +35,36 @@ struct VLCPlayerView: UIViewRepresentable {
         }
     }
 }
+#endif
 
+#if os(macOS)
+struct VLCPlayerView: NSViewRepresentable {
+    @Binding var mediaUrl: String?
+
+    @State var mediaPlayer = VLCMediaPlayer()
+
+    typealias NSViewType = NSView
+    func makeNSView(context: Context) -> NSView {
+        let uiView = NSView()
+        mediaPlayer.drawable = uiView
+        return uiView
+    }
+    
+    func updateNSView(_ nsView: NSView, context: Context) {
+        if let urlstr = mediaUrl {
+            let url = URL(string: urlstr)
+            mediaPlayer.media = VLCMedia(url: url!)
+            mediaPlayer.play()
+        } else {
+            mediaPlayer.stop()
+        }
+    }
+
+}
+#endif
 struct ContentView: View {
-    @State var mediaURL: String? 
+    @State var mediaURL: String?
     var body: some View {
       VLCPlayerView(mediaUrl: $mediaURL)
    }
 }
-
