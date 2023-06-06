@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "vlckit-spm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/tylerjonesio/vlckit-spm",
+      "state" : {
+        "branch" : "main",
+        "revision" : "d9006002f372c5bcf72a5ef24ebd02f89ef9f4fe"
+      }
+    }
+  ],
+  "version" : 2
+}
