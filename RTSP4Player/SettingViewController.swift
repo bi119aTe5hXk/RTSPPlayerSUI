@@ -25,15 +25,14 @@ class SettingViewController: UIViewController{
     @IBOutlet weak var urlField16:UITextField!
     @IBOutlet weak var saveAndStartBTN:UIButton!
     
-    let userDefaults = UserDefaults.standard
-    let kURLArr = "kURLArr"
-    
+    var userDef:UD!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.userDef = UD()
+        let urlArr = userDef.readURLArray()
         
-        let urlArr = userDefaults.array(forKey: kURLArr) as? [String] ?? []
         self.urlField1.text = urlArr[0]
         self.urlField2.text = urlArr[1]
         self.urlField3.text = urlArr[2]
@@ -50,8 +49,6 @@ class SettingViewController: UIViewController{
         self.urlField14.text = urlArr[13]
         self.urlField15.text = urlArr[14]
         self.urlField16.text = urlArr[15]
-        
-        
         
     }
     
@@ -75,10 +72,7 @@ class SettingViewController: UIViewController{
         arr[14] = self.urlField15.text!
         arr[15] = self.urlField16.text!
         
-        userDefaults.setValue(arr, forKey: kURLArr)
-        userDefaults.synchronize()
-        
-        
+        userDef.saveURLArray(arr: arr);
         
         
         
