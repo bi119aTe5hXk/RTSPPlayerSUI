@@ -26,13 +26,7 @@ struct VLCPlayerView: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: UIView, context: Context) {
-        if let urlstr = mediaUrl {
-            let url = URL(string: urlstr)
-            mediaPlayer.media = VLCMedia(url: url!)
-            mediaPlayer.play()
-        } else {
-            mediaPlayer.stop()
-        }
+        startPlayer(url: mediaUrl, player: mediaPlayer)
     }
 }
 #endif
@@ -51,17 +45,25 @@ struct VLCPlayerView: NSViewRepresentable {
     }
     
     func updateNSView(_ nsView: NSView, context: Context) {
-        if let urlstr = mediaUrl {
-            let url = URL(string: urlstr)
-            mediaPlayer.media = VLCMedia(url: url!)
-            mediaPlayer.play()
-        } else {
-            mediaPlayer.stop()
-        }
+        startPlayer(url: mediaUrl, player: mediaPlayer)
     }
-
 }
 #endif
+
+func startPlayer(url:String?, player:VLCMediaPlayer){
+    if let urlStr = url{
+        if player.isPlaying{
+            print("stop player")
+            player.stop()
+        }
+        player.media = VLCMedia(url: URL(string: urlStr)!)
+        player.play()
+    }else{
+        print("url is empty")
+        player.stop()
+    }
+}
+
 struct ContentView: View {
     @State var mediaURL: String?
     var body: some View {
