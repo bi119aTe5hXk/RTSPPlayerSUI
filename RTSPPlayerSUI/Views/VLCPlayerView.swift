@@ -27,6 +27,7 @@ struct VLCPlayerView: UIViewRepresentable {
 
     func updateUIView(_ uiView: UIView, context: Context) {
         startPlayer(url: mediaUrl, player: mediaPlayer)
+        UIApplication.shared.isIdleTimerDisabled = true
     }
 }
 #endif
@@ -57,6 +58,7 @@ func startPlayer(url:String?, player:VLCMediaPlayer){
             player.stop()
         }
         player.media = VLCMedia(url: URL(string: urlStr)!)
+        player.media?.addOption(":no-audio")
         player.play()
     }else{
         print("url is empty")
