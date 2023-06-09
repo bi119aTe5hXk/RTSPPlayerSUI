@@ -27,7 +27,6 @@ struct VLCPlayerView: UIViewRepresentable {
 
     func updateUIView(_ uiView: UIView, context: Context) {
         startPlayer(url: mediaUrl, player: mediaPlayer)
-        UIApplication.shared.isIdleTimerDisabled = true
     }
 }
 #endif
