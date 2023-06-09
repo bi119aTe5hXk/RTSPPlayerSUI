@@ -8,21 +8,19 @@
 import Foundation
 
 class UD {
-    
-    let userDefaults = UserDefaults.standard
+    var keyStore = NSUbiquitousKeyValueStore()
     let kURLArr = "kURLArr"
     
     func readURLArray() -> Array<String>{
-        return userDefaults.array(forKey: kURLArr) as? [String] ?? []
+        return keyStore.array(forKey: kURLArr) as? [String] ?? []
     }
     
     func saveURLArray(arr: Array<String>){
-        userDefaults.setValue(arr, forKey: kURLArr)
-        userDefaults.synchronize()
+        keyStore.set(arr, forKey: kURLArr)
+        keyStore.synchronize()
     }
     
     init() {
-        //let arr = Array(repeating: "", count: 0)
         UserDefaults.standard.register(defaults: [kURLArr:[""]])
     }
 }

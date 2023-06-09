@@ -92,7 +92,7 @@ struct SettingsView: View {
             if !self.selectedFeed.isEmpty {
                 Stream1View(urlArr: [self.selectedFeed])
             }
-        }.toolbar(.hidden)
+        }
     }
     
     func playAll(){
