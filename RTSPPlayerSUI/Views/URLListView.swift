@@ -13,10 +13,7 @@ struct SettingsView: View {
     @State private var selectedFeed = ""
     @State private var emptyAlert = false
 
-    @State private var presentSteam1View = false
-    @State private var presentSteam4View = false
-    @State private var presentSteam9View = false
-    @State private var presentSteam16View = false
+    @State private var presentSteamView = false
 
     init() {
         userDef = UD()
@@ -52,20 +49,26 @@ struct SettingsView: View {
                                   }))
                         }
 
-//#if os(tvOS) || os(iOS)
-                        .sheet(isPresented: $presentSteam1View, content: {
-                            Stream1View(urlArr: urlArr)
-                        })
-                        .sheet(isPresented: $presentSteam4View, content: {
-                            Stream4View(urlArr: urlArr)
-                        })
-                        .sheet(isPresented: $presentSteam9View, content: {
-                            Stream9View(urlArr: urlArr)
-                        })
-                        .sheet(isPresented: $presentSteam16View, content: {
-                            Stream16View(urlArr: urlArr)
-                        })
-//#endif
+#if !os(tvOS)
+						.fullScreenCover(isPresented: $presentSteamView,onDismiss: {}) {
+							NavigationStack {
+								StreamView(urlArr: urlArr)
+									.toolbar {
+										Button(action: {
+											self.presentSteamView.toggle()
+										}, label: {
+											Text("Close")
+										})
+										Spacer()
+									}
+							}
+                        }
+#endif
+#if os(tvOS)
+						.sheet(isPresented: $presentSteamView,content: {
+							StreamView(urlArr: urlArr)
+						})
+#endif
 //#if os(macOS)
 //#endif
                 }//H
@@ -90,7 +93,7 @@ struct SettingsView: View {
             }//V
 
             if !self.selectedFeed.isEmpty {
-                Stream1View(urlArr: [self.selectedFeed])
+                StreamView(urlArr: [self.selectedFeed])
             }
         }
     }
@@ -101,14 +104,8 @@ struct SettingsView: View {
 
         if itemCount <= 0 {
             self.emptyAlert = true
-        } else if itemCount == 1 {
-            self.presentSteam1View.toggle()
-        } else if itemCount <= 4 {
-            self.presentSteam4View.toggle()
-        } else if itemCount <= 9 {
-            self.presentSteam9View.toggle()
-        } else {
-            self.presentSteam16View.toggle()
+		} else {
+            self.presentSteamView.toggle()
         }
     }
 }
