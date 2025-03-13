@@ -14,7 +14,7 @@ struct RTSPPlayerSUIApp: App {
 #endif
     var body: some Scene {
         WindowGroup {
-            SettingsView()
+			URLListView()
         }
     }
 }

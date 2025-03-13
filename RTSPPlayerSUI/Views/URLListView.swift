@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  URLListView.swift
 //  RTSPPlayerSUI
 //
 //  Created by bi119aTe5hXk on 2023/06/05.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SettingsView: View {
+struct URLListView: View {
     var userDef: UD
     @State var urlArr: [String]
     @State private var selectedFeed = ""
@@ -49,7 +49,7 @@ struct SettingsView: View {
                                   }))
                         }
 
-#if !os(tvOS)
+#if os(iOS)
 						.fullScreenCover(isPresented: $presentSteamView,onDismiss: {}) {
 							NavigationStack {
 								StreamView(urlArr: urlArr)
@@ -64,7 +64,7 @@ struct SettingsView: View {
 							}
                         }
 #endif
-#if os(tvOS)
+#if os(tvOS) || os(macOS)
 						.sheet(isPresented: $presentSteamView,content: {
 							StreamView(urlArr: urlArr)
 						})
@@ -95,7 +95,7 @@ struct SettingsView: View {
             if !self.selectedFeed.isEmpty {
                 StreamView(urlArr: [self.selectedFeed])
             }
-        }
+		}
     }
     
     func playAll(){
@@ -110,8 +110,3 @@ struct SettingsView: View {
     }
 }
 
-struct Settings_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView()
-    }
-}

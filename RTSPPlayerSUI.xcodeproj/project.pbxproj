@@ -8,34 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		473CFB5D2A2DD8630076F5DD /* RTSPPlayerSUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473CFB5C2A2DD8630076F5DD /* RTSPPlayerSUIApp.swift */; };
-		473CFB5F2A2DD8630076F5DD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473CFB5E2A2DD8630076F5DD /* SettingsView.swift */; };
+		473CFB5F2A2DD8630076F5DD /* URLListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473CFB5E2A2DD8630076F5DD /* URLListView.swift */; };
 		473CFB612A2DD8650076F5DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 473CFB602A2DD8650076F5DD /* Assets.xcassets */; };
 		473CFB652A2DD8650076F5DD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 473CFB642A2DD8650076F5DD /* Preview Assets.xcassets */; };
 		473CFB6C2A2DD8750076F5DD /* UD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473CFB6B2A2DD8750076F5DD /* UD.swift */; };
 		473CFB842A2E38990076F5DD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473CFB832A2E38990076F5DD /* Utils.swift */; };
-		473CFB862A2E3DD80076F5DD /* Stream1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473CFB852A2E3DD80076F5DD /* Stream1View.swift */; };
 		473CFB892A2E488E0076F5DD /* VLCKitSPM in Frameworks */ = {isa = PBXBuildFile; productRef = 473CFB882A2E488E0076F5DD /* VLCKitSPM */; settings = {ATTRIBUTES = (Required, ); }; };
 		473CFB8B2A2E49760076F5DD /* VLCPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473CFB8A2A2E49760076F5DD /* VLCPlayerView.swift */; };
-		473CFB912A2F04240076F5DD /* Stream4View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473CFB902A2F04240076F5DD /* Stream4View.swift */; };
-		473CFB932A2F069E0076F5DD /* Stream9View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473CFB922A2F069E0076F5DD /* Stream9View.swift */; };
-		473CFB952A2F08030076F5DD /* Stream16View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473CFB942A2F08030076F5DD /* Stream16View.swift */; };
+		8658465D2D82B46200A80542 /* StreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8658465C2D82B45C00A80542 /* StreamView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		473CFB592A2DD8630076F5DD /* RTSPPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RTSPPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		473CFB5C2A2DD8630076F5DD /* RTSPPlayerSUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTSPPlayerSUIApp.swift; sourceTree = "<group>"; };
-		473CFB5E2A2DD8630076F5DD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		473CFB5E2A2DD8630076F5DD /* URLListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLListView.swift; sourceTree = "<group>"; };
 		473CFB602A2DD8650076F5DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		473CFB622A2DD8650076F5DD /* RTSPPlayerSUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RTSPPlayerSUI.entitlements; sourceTree = "<group>"; };
 		473CFB642A2DD8650076F5DD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		473CFB6B2A2DD8750076F5DD /* UD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UD.swift; sourceTree = "<group>"; };
 		473CFB832A2E38990076F5DD /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		473CFB852A2E3DD80076F5DD /* Stream1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stream1View.swift; sourceTree = "<group>"; };
 		473CFB8A2A2E49760076F5DD /* VLCPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLCPlayerView.swift; sourceTree = "<group>"; };
-		473CFB902A2F04240076F5DD /* Stream4View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stream4View.swift; sourceTree = "<group>"; };
-		473CFB922A2F069E0076F5DD /* Stream9View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stream9View.swift; sourceTree = "<group>"; };
-		473CFB942A2F08030076F5DD /* Stream16View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stream16View.swift; sourceTree = "<group>"; };
 		473CFB972A2F25C50076F5DD /* RTSPPlayer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "RTSPPlayer-Info.plist"; sourceTree = "<group>"; };
+		8658465C2D82B45C00A80542 /* StreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,12 +86,9 @@
 		473CFB962A2F12570076F5DD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				473CFB5E2A2DD8630076F5DD /* URLListView.swift */,
+				8658465C2D82B45C00A80542 /* StreamView.swift */,
 				473CFB8A2A2E49760076F5DD /* VLCPlayerView.swift */,
-				473CFB5E2A2DD8630076F5DD /* SettingsView.swift */,
-				473CFB852A2E3DD80076F5DD /* Stream1View.swift */,
-				473CFB902A2F04240076F5DD /* Stream4View.swift */,
-				473CFB922A2F069E0076F5DD /* Stream9View.swift */,
-				473CFB942A2F08030076F5DD /* Stream16View.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -178,15 +169,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				473CFB5F2A2DD8630076F5DD /* SettingsView.swift in Sources */,
+				473CFB5F2A2DD8630076F5DD /* URLListView.swift in Sources */,
 				473CFB8B2A2E49760076F5DD /* VLCPlayerView.swift in Sources */,
 				473CFB5D2A2DD8630076F5DD /* RTSPPlayerSUIApp.swift in Sources */,
-				473CFB912A2F04240076F5DD /* Stream4View.swift in Sources */,
-				473CFB952A2F08030076F5DD /* Stream16View.swift in Sources */,
-				473CFB932A2F069E0076F5DD /* Stream9View.swift in Sources */,
 				473CFB6C2A2DD8750076F5DD /* UD.swift in Sources */,
 				473CFB842A2E38990076F5DD /* Utils.swift in Sources */,
-				473CFB862A2E3DD80076F5DD /* Stream1View.swift in Sources */,
+				8658465D2D82B46200A80542 /* StreamView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +307,7 @@
 				INFOPLIST_FILE = "RTSPPlayer-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = RTSPPlayer;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.video";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "This app will access your local network in order to commute with your RTSP devices.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -329,7 +318,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
@@ -343,7 +332,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3";
-				TVOS_DEPLOYMENT_TARGET = 14.0;
+				TVOS_DEPLOYMENT_TARGET = 16.0;
 				WATCHOS_DEPLOYMENT_TARGET = 9.1;
 			};
 			name = Debug;
@@ -365,6 +354,7 @@
 				INFOPLIST_FILE = "RTSPPlayer-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = RTSPPlayer;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.video";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "This app will access your local network in order to commute with your RTSP devices.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -375,7 +365,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
@@ -389,7 +379,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3";
-				TVOS_DEPLOYMENT_TARGET = 14.0;
+				TVOS_DEPLOYMENT_TARGET = 16.0;
 				WATCHOS_DEPLOYMENT_TARGET = 9.1;
 			};
 			name = Release;

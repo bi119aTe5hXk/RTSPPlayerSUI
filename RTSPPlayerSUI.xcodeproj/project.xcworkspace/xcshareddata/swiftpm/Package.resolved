@@ -1,4 +1,5 @@
 {
+  "originHash" : "294b5443f2fd75dbed7a00528cc25cb27baf812b2346df53611fbd2af4f2803d",
   "pins" : [
     {
       "identity" : "vlckit-spm",
@@ -6,9 +7,9 @@
       "location" : "https://github.com/tylerjonesio/vlckit-spm",
       "state" : {
         "branch" : "main",
-        "revision" : "d9006002f372c5bcf72a5ef24ebd02f89ef9f4fe"
+        "revision" : "e932bbd488872fdb74f6654d28c2f291eae03daf"
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
