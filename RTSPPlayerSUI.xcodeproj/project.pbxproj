@@ -16,6 +16,11 @@
 		473CFB892A2E488E0076F5DD /* VLCKitSPM in Frameworks */ = {isa = PBXBuildFile; productRef = 473CFB882A2E488E0076F5DD /* VLCKitSPM */; settings = {ATTRIBUTES = (Required, ); }; };
 		473CFB8B2A2E49760076F5DD /* VLCPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473CFB8A2A2E49760076F5DD /* VLCPlayerView.swift */; };
 		8658465D2D82B46200A80542 /* StreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8658465C2D82B45C00A80542 /* StreamView.swift */; };
+		86C080FF2E3B476C00D48056 /* FFmpegKit in Frameworks */ = {isa = PBXBuildFile; productRef = 86C080FE2E3B476C00D48056 /* FFmpegKit */; };
+		86C081012E3B476C00D48056 /* LibMPV in Frameworks */ = {isa = PBXBuildFile; productRef = 86C081002E3B476C00D48056 /* LibMPV */; };
+		86C081032E3B476C00D48056 /* Libffmpeg in Frameworks */ = {isa = PBXBuildFile; productRef = 86C081022E3B476C00D48056 /* Libffmpeg */; };
+		86C081052E3B476C00D48056 /* MPVKit in Frameworks */ = {isa = PBXBuildFile; productRef = 86C081042E3B476C00D48056 /* MPVKit */; };
+		86C081072E3B4EC600D48056 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C081062E3B4EBB00D48056 /* PlayerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +35,7 @@
 		473CFB8A2A2E49760076F5DD /* VLCPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLCPlayerView.swift; sourceTree = "<group>"; };
 		473CFB972A2F25C50076F5DD /* RTSPPlayer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "RTSPPlayer-Info.plist"; sourceTree = "<group>"; };
 		8658465C2D82B45C00A80542 /* StreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamView.swift; sourceTree = "<group>"; };
+		86C081062E3B4EBB00D48056 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +43,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86C081052E3B476C00D48056 /* MPVKit in Frameworks */,
+				86C080FF2E3B476C00D48056 /* FFmpegKit in Frameworks */,
+				86C081032E3B476C00D48056 /* Libffmpeg in Frameworks */,
+				86C081012E3B476C00D48056 /* LibMPV in Frameworks */,
 				473CFB892A2E488E0076F5DD /* VLCKitSPM in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,6 +98,7 @@
 			children = (
 				473CFB5E2A2DD8630076F5DD /* URLListView.swift */,
 				8658465C2D82B45C00A80542 /* StreamView.swift */,
+				86C081062E3B4EBB00D48056 /* PlayerView.swift */,
 				473CFB8A2A2E49760076F5DD /* VLCPlayerView.swift */,
 			);
 			path = Views;
@@ -111,6 +122,10 @@
 			name = RTSPPlayer;
 			packageProductDependencies = (
 				473CFB882A2E488E0076F5DD /* VLCKitSPM */,
+				86C080FE2E3B476C00D48056 /* FFmpegKit */,
+				86C081002E3B476C00D48056 /* LibMPV */,
+				86C081022E3B476C00D48056 /* Libffmpeg */,
+				86C081042E3B476C00D48056 /* MPVKit */,
 			);
 			productName = RTSPPlayerSUI;
 			productReference = 473CFB592A2DD8630076F5DD /* RTSPPlayer.app */;
@@ -142,6 +157,7 @@
 			mainGroup = 473CFB502A2DD8630076F5DD;
 			packageReferences = (
 				473CFB872A2E488E0076F5DD /* XCRemoteSwiftPackageReference "vlckit-spm" */,
+				86C080FD2E3B476C00D48056 /* XCRemoteSwiftPackageReference "MPVKit" */,
 			);
 			productRefGroup = 473CFB5A2A2DD8630076F5DD /* Products */;
 			projectDirPath = "";
@@ -171,6 +187,7 @@
 			files = (
 				473CFB5F2A2DD8630076F5DD /* URLListView.swift in Sources */,
 				473CFB8B2A2E49760076F5DD /* VLCPlayerView.swift in Sources */,
+				86C081072E3B4EC600D48056 /* PlayerView.swift in Sources */,
 				473CFB5D2A2DD8630076F5DD /* RTSPPlayerSUIApp.swift in Sources */,
 				473CFB6C2A2DD8750076F5DD /* UD.swift in Sources */,
 				473CFB842A2E38990076F5DD /* Utils.swift in Sources */,
@@ -318,10 +335,10 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.bi119aTe5hXk.RTSPPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -332,7 +349,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3";
-				TVOS_DEPLOYMENT_TARGET = 16.0;
+				TVOS_DEPLOYMENT_TARGET = 17.6;
 				WATCHOS_DEPLOYMENT_TARGET = 9.1;
 			};
 			name = Debug;
@@ -365,10 +382,10 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.bi119aTe5hXk.RTSPPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -379,7 +396,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,3";
-				TVOS_DEPLOYMENT_TARGET = 16.0;
+				TVOS_DEPLOYMENT_TARGET = 17.6;
 				WATCHOS_DEPLOYMENT_TARGET = 9.1;
 			};
 			name = Release;
@@ -416,6 +433,14 @@
 				kind = branch;
 			};
 		};
+		86C080FD2E3B476C00D48056 /* XCRemoteSwiftPackageReference "MPVKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/karelrooted/MPVKit";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -423,6 +448,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 473CFB872A2E488E0076F5DD /* XCRemoteSwiftPackageReference "vlckit-spm" */;
 			productName = VLCKitSPM;
+		};
+		86C080FE2E3B476C00D48056 /* FFmpegKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86C080FD2E3B476C00D48056 /* XCRemoteSwiftPackageReference "MPVKit" */;
+			productName = FFmpegKit;
+		};
+		86C081002E3B476C00D48056 /* LibMPV */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86C080FD2E3B476C00D48056 /* XCRemoteSwiftPackageReference "MPVKit" */;
+			productName = LibMPV;
+		};
+		86C081022E3B476C00D48056 /* Libffmpeg */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86C080FD2E3B476C00D48056 /* XCRemoteSwiftPackageReference "MPVKit" */;
+			productName = Libffmpeg;
+		};
+		86C081042E3B476C00D48056 /* MPVKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86C080FD2E3B476C00D48056 /* XCRemoteSwiftPackageReference "MPVKit" */;
+			productName = MPVKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

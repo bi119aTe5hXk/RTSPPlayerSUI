@@ -63,8 +63,13 @@ struct URLListView: View {
 									}
 							}
                         }
-#endif
-#if os(tvOS) || os(macOS)
+#elseif os(tvOS)
+						.fullScreenCover(isPresented: $presentSteamView,onDismiss: {}) {
+							NavigationStack {
+								StreamView(urlArr: urlArr)
+							}
+						}
+#elseif os(macOS)
 						.sheet(isPresented: $presentSteamView,content: {
 							StreamView(urlArr: urlArr)
 						})
