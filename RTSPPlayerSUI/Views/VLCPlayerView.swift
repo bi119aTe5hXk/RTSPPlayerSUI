@@ -53,6 +53,7 @@ struct VLCPlayerView: NSViewRepresentable {
     @Binding var mediaUrl: String?
 
     @State var mediaPlayer = VLCMediaPlayer()
+    var reconnectTimer: DispatchSourceTimer?
 
     typealias NSViewType = NSView
     func makeNSView(context: Context) -> NSView {
@@ -64,7 +65,9 @@ struct VLCPlayerView: NSViewRepresentable {
 
 		if let urlStr = mediaUrl {
 			DispatchQueue.main.async {
-				startPlayer(url: urlStr, player: mediaPlayer)
+				startPlayer(url: urlStr,
+                            player: mediaPlayer,
+                            timer: reconnectTimer)
 			}
 		}
         return uiView
@@ -73,8 +76,8 @@ struct VLCPlayerView: NSViewRepresentable {
     func updateNSView(_ nsView: NSView, context: Context) {
 //        startPlayer(url: mediaUrl, player: mediaPlayer)
     }
-	static func dismantleUIView(_ uiView: UIView, coordinator: ()) {
-		(uiView as? VLCPlayerView)?.reconnectTimer?.cancel()
+	static func dismantleUIView(_ view: NSView, coordinator: ()) {
+		(view as? VLCPlayerView)?.reconnectTimer?.cancel()
 	}
 }
 #endif
@@ -102,9 +105,12 @@ func startPlayer(url:String?, player:VLCMediaPlayer, timer:DispatchSourceTimer?)
 			UIApplication.shared.isIdleTimerDisabled = true
 #endif
         player.play()
-		var timer1 = timer
-		timer1 = makeReconnectTimer(for: player,
-								   interval: 5.0)
+        if var timer1 = timer{
+            timer1 = makeReconnectTimer(for: player,
+                                        interval: 5.0)
+            timer1.activate()
+        }
+        
     }else{
         print("url is empty")
         player.stop()

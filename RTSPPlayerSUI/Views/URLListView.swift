@@ -14,6 +14,11 @@ struct URLListView: View {
     @State private var emptyAlert = false
 
     @State private var presentSteamView = false
+	@State private var presentSettingsView = false
+
+	@StateObject var settingsVC = SettingsVC()
+
+	@State private var didAutoPresent = false
 
     init() {
         userDef = UD()
@@ -31,8 +36,18 @@ struct URLListView: View {
                     }, label: {
                         Image(systemName: "plus.app")
                     }).padding(5)
-                    .frame(maxWidth: .infinity, alignment: .leading)
+//                    .frame(maxWidth: .infinity, alignment: .leading)
                     .disabled(urlArr.count >= 16)
+
+					// settings button
+					Button(action: {
+						self.presentSettingsView.toggle()
+					}, label: {
+						Image(systemName: "gearshape")
+					}).padding(5)
+//						.frame(maxWidth: .infinity, alignment: .leading)
+
+					Spacer()
 
                     // play all button
                     Button(action: {
@@ -69,6 +84,11 @@ struct URLListView: View {
 								StreamView(urlArr: urlArr)
 							}
 						}
+						.fullScreenCover(isPresented: $presentSettingsView, content: {
+							SettingsView(settingsVC: settingsVC)
+								.background().edgesIgnoringSafeArea(.all)
+						})
+
 #elseif os(macOS)
 						.sheet(isPresented: $presentSteamView,content: {
 							StreamView(urlArr: urlArr)
@@ -97,9 +117,19 @@ struct URLListView: View {
                 }
             }//V
 
-            if !self.selectedFeed.isEmpty {
-                StreamView(urlArr: [self.selectedFeed])
-            }
+//            if !self.selectedFeed.isEmpty {
+//                StreamView(urlArr: [self.selectedFeed])
+//            }
+
+
+				.onAppear {
+					if !didAutoPresent && settingsVC.ud
+						.getPlayWhenOpen() && !urlArr.isEmpty {
+						print("shoud open steam view")
+						presentSteamView = true
+						didAutoPresent = true
+					}
+				}
 		}
     }
     

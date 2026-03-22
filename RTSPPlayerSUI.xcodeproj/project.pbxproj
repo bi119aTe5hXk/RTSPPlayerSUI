@@ -16,6 +16,8 @@
 		473CFB892A2E488E0076F5DD /* VLCKitSPM in Frameworks */ = {isa = PBXBuildFile; productRef = 473CFB882A2E488E0076F5DD /* VLCKitSPM */; settings = {ATTRIBUTES = (Required, ); }; };
 		473CFB8B2A2E49760076F5DD /* VLCPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473CFB8A2A2E49760076F5DD /* VLCPlayerView.swift */; };
 		8658465D2D82B46200A80542 /* StreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8658465C2D82B45C00A80542 /* StreamView.swift */; };
+		866525CA2F6FC67A00A4B9B6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866525C92F6FC67400A4B9B6 /* SettingsView.swift */; };
+		866525CC2F6FCB2E00A4B9B6 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866525CB2F6FCB2A00A4B9B6 /* SettingsVC.swift */; };
 		86C080FF2E3B476C00D48056 /* FFmpegKit in Frameworks */ = {isa = PBXBuildFile; productRef = 86C080FE2E3B476C00D48056 /* FFmpegKit */; };
 		86C081012E3B476C00D48056 /* LibMPV in Frameworks */ = {isa = PBXBuildFile; productRef = 86C081002E3B476C00D48056 /* LibMPV */; };
 		86C081032E3B476C00D48056 /* Libffmpeg in Frameworks */ = {isa = PBXBuildFile; productRef = 86C081022E3B476C00D48056 /* Libffmpeg */; };
@@ -35,6 +37,8 @@
 		473CFB8A2A2E49760076F5DD /* VLCPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLCPlayerView.swift; sourceTree = "<group>"; };
 		473CFB972A2F25C50076F5DD /* RTSPPlayer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "RTSPPlayer-Info.plist"; sourceTree = "<group>"; };
 		8658465C2D82B45C00A80542 /* StreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamView.swift; sourceTree = "<group>"; };
+		866525C92F6FC67400A4B9B6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		866525CB2F6FCB2A00A4B9B6 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		86C081062E3B4EBB00D48056 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,6 +81,7 @@
 				473CFB5C2A2DD8630076F5DD /* RTSPPlayerSUIApp.swift */,
 				473CFB6B2A2DD8750076F5DD /* UD.swift */,
 				473CFB832A2E38990076F5DD /* Utils.swift */,
+				866525CB2F6FCB2A00A4B9B6 /* SettingsVC.swift */,
 				473CFB962A2F12570076F5DD /* Views */,
 				473CFB602A2DD8650076F5DD /* Assets.xcassets */,
 				473CFB622A2DD8650076F5DD /* RTSPPlayerSUI.entitlements */,
@@ -97,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				473CFB5E2A2DD8630076F5DD /* URLListView.swift */,
+				866525C92F6FC67400A4B9B6 /* SettingsView.swift */,
 				8658465C2D82B45C00A80542 /* StreamView.swift */,
 				86C081062E3B4EBB00D48056 /* PlayerView.swift */,
 				473CFB8A2A2E49760076F5DD /* VLCPlayerView.swift */,
@@ -139,7 +145,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 2620;
 				TargetAttributes = {
 					473CFB582A2DD8630076F5DD = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -186,12 +192,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				473CFB5F2A2DD8630076F5DD /* URLListView.swift in Sources */,
+				866525CA2F6FC67A00A4B9B6 /* SettingsView.swift in Sources */,
 				473CFB8B2A2E49760076F5DD /* VLCPlayerView.swift in Sources */,
 				86C081072E3B4EC600D48056 /* PlayerView.swift in Sources */,
 				473CFB5D2A2DD8630076F5DD /* RTSPPlayerSUIApp.swift in Sources */,
 				473CFB6C2A2DD8750076F5DD /* UD.swift in Sources */,
 				473CFB842A2E38990076F5DD /* Utils.swift in Sources */,
 				8658465D2D82B46200A80542 /* StreamView.swift in Sources */,
+				866525CC2F6FCB2E00A4B9B6 /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +210,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -231,9 +240,12 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 26E2Z7VDS4;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -251,6 +263,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -260,6 +273,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -289,9 +303,12 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 26E2Z7VDS4;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -302,6 +319,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
@@ -310,16 +328,20 @@
 		473CFB692A2DD8650076F5DD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = RTSPPlayerSUI/RTSPPlayerSUI.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"RTSPPlayerSUI/Preview Content\"";
-				DEVELOPMENT_TEAM = 26E2Z7VDS4;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "RTSPPlayer-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = RTSPPlayer;
@@ -343,8 +365,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.bi119aTe5hXk.RTSPPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx watchos watchsimulator xros xrsimulator";
+				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -357,16 +379,20 @@
 		473CFB6A2A2DD8650076F5DD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = RTSPPlayerSUI/RTSPPlayerSUI.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"RTSPPlayerSUI/Preview Content\"";
-				DEVELOPMENT_TEAM = 26E2Z7VDS4;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "RTSPPlayer-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = RTSPPlayer;
@@ -390,8 +416,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.bi119aTe5hXk.RTSPPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx watchos watchsimulator xros xrsimulator";
+				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

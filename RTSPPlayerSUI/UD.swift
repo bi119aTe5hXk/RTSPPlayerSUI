@@ -10,7 +10,9 @@ import Foundation
 class UD {
     var keyStore = NSUbiquitousKeyValueStore()
     let kURLArr = "kURLArr"
-    
+	let kPlayWhenOpen = "kPlayWhenOpen"
+
+
     func readURLArray() -> Array<String>{
         return keyStore.array(forKey: kURLArr) as? [String] ?? []
     }
@@ -19,4 +21,15 @@ class UD {
         keyStore.set(arr, forKey: kURLArr)
         keyStore.synchronize()
     }
+
+	func getPlayWhenOpen() -> Bool {
+		let isOn = keyStore.bool(forKey: kPlayWhenOpen)
+		print("getPlayWhenOpen is \(isOn)")
+		return isOn
+	}
+	func setPlayWhenOpen(_ isOn: Bool){
+		print("set PlayWhenOpen to \(isOn)")
+		keyStore.set(isOn, forKey: kPlayWhenOpen)
+		keyStore.synchronize()
+	}
 }

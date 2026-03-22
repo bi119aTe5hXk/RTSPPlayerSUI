@@ -9,132 +9,62 @@ import SwiftUI
 
 
 struct StreamView: View {
-	@State var urlArr:Array<String?>
+    @State var urlArr:Array<String?>
 
-	var body: some View {
-		HStack(spacing: 0){
-			if urlArr.count == 1 {
-				PlayerView(mediaUrl: $urlArr[0])
-					.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-			}else if urlArr.count <= 4 {
-				VStack(spacing: 0){
-					if urlArr.count >= 1{
-						PlayerView(mediaUrl: $urlArr[0])
-					}
-					if urlArr.count >= 2{
-						PlayerView(mediaUrl: $urlArr[1])
-					}
-				}
-				VStack(spacing: 0){
-					if urlArr.count >= 3{
-						PlayerView(mediaUrl: $urlArr[2])
-					}
-					if urlArr.count >= 4{
-						PlayerView(mediaUrl: $urlArr[3])
-					}
-				}
-			}else if urlArr.count <= 9 {
-				VStack(spacing: 0){
-					if urlArr.count >= 1{
-						PlayerView(mediaUrl: $urlArr[0])
-					}
-					if urlArr.count >= 2{
-						PlayerView(mediaUrl: $urlArr[1])
-					}
-					if urlArr.count >= 3{
-						PlayerView(mediaUrl: $urlArr[2])
-					}
-				}
-				VStack(spacing: 0){
-					if urlArr.count >= 4{
-						PlayerView(mediaUrl: $urlArr[3])
-					}
-					if urlArr.count >= 5{
-						PlayerView(mediaUrl: $urlArr[4])
-					}
-					if urlArr.count >= 6{
-						PlayerView(mediaUrl: $urlArr[5])
-					}
-				}
-				VStack(spacing: 0){
-					if urlArr.count >= 7{
-						PlayerView(mediaUrl: $urlArr[6])
-					}
-					if urlArr.count >= 8{
-						PlayerView(mediaUrl: $urlArr[7])
-					}
-					if urlArr.count >= 9{
-						PlayerView(mediaUrl: $urlArr[8])
-					}
-				}
-			}else{
-				VStack(spacing: 0){
-					if urlArr.count >= 1{
-						PlayerView(mediaUrl: $urlArr[0])
-					}
-					if urlArr.count >= 2{
-						PlayerView(mediaUrl: $urlArr[1])
-					}
-					if urlArr.count >= 3{
-						PlayerView(mediaUrl: $urlArr[2])
-					}
-					if urlArr.count >= 4{
-						PlayerView(mediaUrl: $urlArr[3])
-					}
-				}
-				VStack(spacing: 0){
-					if urlArr.count >= 5{
-						PlayerView(mediaUrl: $urlArr[4])
-					}
-					if urlArr.count >= 6{
-						PlayerView(mediaUrl: $urlArr[5])
-					}
-					if urlArr.count >= 7{
-						PlayerView(mediaUrl: $urlArr[6])
-					}
-					if urlArr.count >= 8{
-						PlayerView(mediaUrl: $urlArr[7])
-					}
-				}
-				VStack(spacing: 0){
-					if urlArr.count >= 9{
-						PlayerView(mediaUrl: $urlArr[8])
-					}
-					if urlArr.count >= 10{
-						PlayerView(mediaUrl: $urlArr[9])
-					}
-					if urlArr.count >= 11{
-						PlayerView(mediaUrl: $urlArr[10])
-					}
-					if urlArr.count >= 12{
-						PlayerView(mediaUrl: $urlArr[11])
-					}
-				}
-				VStack(spacing: 0){
-					if urlArr.count >= 13{
-						PlayerView(mediaUrl: $urlArr[12])
-					}
-					if urlArr.count >= 14{
-						PlayerView(mediaUrl: $urlArr[13])
-					}
-					if urlArr.count >= 15{
-						PlayerView(mediaUrl: $urlArr[14])
-					}
-					if urlArr.count >= 16{
-						PlayerView(mediaUrl: $urlArr[15])
-					}
-				}
-			}
+    private var gridColumnsCount: Int {
+        let count = max(urlArr.count, 1)
+        // Increase columns as the count grows so everything fits without scrolling.
+        // 1->1, 2-4->2, 5-9->3, 10-16->4, 17-25->5, ...
+        return Int(ceil(sqrt(Double(count))))
+    }
 
-		}.padding(0)
-            .edgesIgnoringSafeArea(.all)
+    private var gridColumns: [GridItem] {
+        Array(repeating: GridItem(.flexible(), spacing: 0), count: gridColumnsCount)
+    }
 
+    private var gridItemCount: Int {
+        // Show all tiles
+        urlArr.count
+    }
 
-	}
+    private func bindingForUrl(at index: Int) -> Binding<String?> {
+        Binding<String?>(
+            get: {
+                guard index >= 0, index < urlArr.count else { return nil }
+                return urlArr[index]
+            },
+            set: { newValue in
+                guard index >= 0, index < urlArr.count else { return }
+                urlArr[index] = newValue
+            }
+        )
+    }
+
+    var body: some View {
+        GeometryReader { geo in
+            let count = gridItemCount
+            let cols = max(gridColumnsCount, 1)
+            let rows = max(Int(ceil(Double(count) / Double(cols))), 1)
+
+            // Fit the whole grid into the available height.
+            // Width is handled by the grid's flexible columns.
+            let tileHeight = geo.size.height / CGFloat(rows)
+
+            LazyVGrid(columns: gridColumns, spacing: 0) {
+                ForEach(0..<count, id: \.self) { idx in
+                    PlayerView(mediaUrl: bindingForUrl(at: idx))
+                        .frame(height: tileHeight)
+                }
+            }
+            .frame(width: geo.size.width, height: geo.size.height, alignment: .topLeading)
+			.background(Color.black)
+        }
+        .ignoresSafeArea()
+    }
 }
 
-struct StreamView_Previews: PreviewProvider {
-	static var previews: some View {
-		StreamView(urlArr: [""])
-	}
-}
+//struct StreamView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        StreamView(urlArr: [""])
+//    }
+//}
