@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import MPVKit
+
 
 public struct PlayerView: View {
 	@Binding var mediaUrl: String?
@@ -19,29 +19,12 @@ public struct PlayerView: View {
 		if usingVLC {
 			VLCPlayerView(mediaUrl: $mediaUrl)
 				.background(Color.black)
-		} else {
-			if let urlstr = mediaUrl{
+                .onDisappear {
+                    
+                }
+        }else{
+            
+        }
 
-				GeometryReader { proxy in
-					let containerSize = proxy.size
-					let scale = min(
-						containerSize.width  / originalSize.width,
-						containerSize.height / originalSize.height
-					)
-
-
-
-				MPVVideoPlayer(url: URL(string: urlstr)!)
-						.frame(width: originalSize.width,
-							   height: originalSize.height)
-						.scaleEffect(scale, anchor: .center)
-						.position(x: containerSize.width/2,
-								  y: containerSize.height/2)
-				}
-				.background(Color.black)
-
-
-			}
-		}
 	}
 }

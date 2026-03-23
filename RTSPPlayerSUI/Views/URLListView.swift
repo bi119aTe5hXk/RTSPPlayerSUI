@@ -28,7 +28,7 @@ struct URLListView: View {
 
     var body: some View {
         NavigationView {
-            VStack {
+            VStack { //VStack for URL List
                 HStack {
                     // add feed button
                     Button(action: {
@@ -78,6 +78,9 @@ struct URLListView: View {
 									}
 							}
                         }
+                        .sheet(isPresented: $presentSettingsView) {
+                            SettingsView(settingsVC: settingsVC)
+                        }
 #elseif os(tvOS)
 						.fullScreenCover(isPresented: $presentSteamView,onDismiss: {}) {
 							NavigationStack {
@@ -90,8 +93,23 @@ struct URLListView: View {
 						})
 
 #elseif os(macOS)
+                        .sheet(isPresented: $presentSettingsView) {
+                            SettingsView(settingsVC: settingsVC)
+                                .frame(minHeight: 400)
+                        }
 						.sheet(isPresented: $presentSteamView,content: {
-							StreamView(urlArr: urlArr)
+							NavigationStack {
+								StreamView(urlArr: urlArr)
+									.toolbar {
+										Button(action: {
+											self.presentSteamView.toggle()
+										}, label: {
+											Text("Close")
+										})
+										Spacer()
+									}
+							}
+                                .frame(minHeight: 400)
 						})
 #endif
 //#if os(macOS)
@@ -115,14 +133,9 @@ struct URLListView: View {
                         }
                     }
                 }
+                
             }//V
-
-//            if !self.selectedFeed.isEmpty {
-//                StreamView(urlArr: [self.selectedFeed])
-//            }
-
-
-				.onAppear {
+            .onAppear {
 					if !didAutoPresent && settingsVC.ud
 						.getPlayWhenOpen() && !urlArr.isEmpty {
 						print("shoud open steam view")
@@ -130,7 +143,12 @@ struct URLListView: View {
 						didAutoPresent = true
 					}
 				}
+            
+            if !self.selectedFeed.isEmpty {
+                StreamView(urlArr: [self.selectedFeed])
+            }
 		}
+        
     }
     
     func playAll(){

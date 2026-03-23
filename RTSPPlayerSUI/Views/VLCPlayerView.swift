@@ -12,39 +12,50 @@ import VLCKitSPM
 import SwiftUI
 #if os(iOS) || os(tvOS)
 struct VLCPlayerView: UIViewRepresentable {
-
     @Binding var mediaUrl: String?
 
-    @State var mediaPlayer = VLCMediaPlayer()
-	var reconnectTimer: DispatchSourceTimer?
+    class Coordinator {
+        var mediaPlayer: VLCMediaPlayer?
+        var reconnectTimer: DispatchSourceTimer?
+        deinit {
+            mediaPlayer?.stop()
+            mediaPlayer = nil
+            reconnectTimer?.cancel()
+            reconnectTimer = nil
+        }
+    }
 
-    typealias UIViewType = UIView
+    func makeCoordinator() -> Coordinator {
+        Coordinator()
+    }
 
     func makeUIView(context: Context) -> UIView {
         let uiView = UIView()
-		DispatchQueue.main.async {
-			mediaPlayer.drawable = uiView
-		}
-
-		if let urlStr = mediaUrl {
-			DispatchQueue.main.async {
-				startPlayer(
-					url: urlStr,
-					player: mediaPlayer,
-					timer: reconnectTimer
-				)
-			}
-		}
+        let player = VLCMediaPlayer()
+        context.coordinator.mediaPlayer = player
+        DispatchQueue.main.async {
+            player.drawable = uiView
+        }
+        if let urlStr = mediaUrl {
+            DispatchQueue.main.async {
+                startPlayer(
+                    url: urlStr,
+                    player: player,
+                    timer: context.coordinator.reconnectTimer
+                )
+            }
+        }
         return uiView
     }
 
-    func updateUIView(_ uiView: UIView, context: Context) {
+    func updateUIView(_ uiView: UIView, context: Context) {}
 
+    static func dismantleUIView(_ uiView: UIView, coordinator: Coordinator) {
+        coordinator.mediaPlayer?.stop()
+        coordinator.mediaPlayer = nil
+        coordinator.reconnectTimer?.cancel()
+        coordinator.reconnectTimer = nil
     }
-	static func dismantleUIView(_ uiView: UIView, coordinator: ()) {
-		(uiView as? VLCPlayerView)?.reconnectTimer?.cancel()
-	}
-
 }
 #endif
 
@@ -52,34 +63,49 @@ struct VLCPlayerView: UIViewRepresentable {
 struct VLCPlayerView: NSViewRepresentable {
     @Binding var mediaUrl: String?
 
-    @State var mediaPlayer = VLCMediaPlayer()
-    var reconnectTimer: DispatchSourceTimer?
+    class Coordinator {
+        var mediaPlayer: VLCMediaPlayer?
+        var reconnectTimer: DispatchSourceTimer?
+        deinit {
+            mediaPlayer?.stop()
+            mediaPlayer = nil
+            reconnectTimer?.cancel()
+            reconnectTimer = nil
+        }
+    }
 
-    typealias NSViewType = NSView
+    func makeCoordinator() -> Coordinator {
+        Coordinator()
+    }
+
     func makeNSView(context: Context) -> NSView {
-        let uiView = NSView()
-		DispatchQueue.main.async {
-			mediaPlayer.drawable = uiView
-		}
-
-
-		if let urlStr = mediaUrl {
-			DispatchQueue.main.async {
-				startPlayer(url: urlStr,
-                            player: mediaPlayer,
-                            timer: reconnectTimer)
-			}
-		}
-        return uiView
+        let nsView = NSView()
+        let player = VLCMediaPlayer()
+        context.coordinator.mediaPlayer = player
+        DispatchQueue.main.async {
+            player.drawable = nsView
+        }
+        if let urlStr = mediaUrl {
+            DispatchQueue.main.async {
+                startPlayer(
+                    url: urlStr,
+                    player: player,
+                    timer: context.coordinator.reconnectTimer
+                )
+            }
+        }
+        return nsView
     }
-    
-    func updateNSView(_ nsView: NSView, context: Context) {
-//        startPlayer(url: mediaUrl, player: mediaPlayer)
+
+    func updateNSView(_ nsView: NSView, context: Context) {}
+    static func dismantleUIView(_ view: NSView, coordinator: Coordinator) {
+        coordinator.mediaPlayer?.stop()
+        coordinator.mediaPlayer = nil
+        coordinator.reconnectTimer?.cancel()
+        coordinator.reconnectTimer = nil
     }
-	static func dismantleUIView(_ view: NSView, coordinator: ()) {
-		(view as? VLCPlayerView)?.reconnectTimer?.cancel()
-	}
 }
+
 #endif
 
 func startPlayer(url:String?, player:VLCMediaPlayer, timer:DispatchSourceTimer?){

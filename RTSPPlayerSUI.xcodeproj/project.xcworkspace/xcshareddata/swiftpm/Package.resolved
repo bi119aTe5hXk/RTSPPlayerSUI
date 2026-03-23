@@ -1,24 +1,6 @@
 {
-  "originHash" : "2415dead8e697ee3e1a792459a18d2f2d0a00f4b5030e38fff7589c69909d001",
+  "originHash" : "294b5443f2fd75dbed7a00528cc25cb27baf812b2346df53611fbd2af4f2803d",
   "pins" : [
-    {
-      "identity" : "mpvkit",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/karelrooted/MPVKit",
-      "state" : {
-        "branch" : "main",
-        "revision" : "12dcbddbee838a212aad98168a1b5a56d213b8c5"
-      }
-    },
-    {
-      "identity" : "swift-log",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-log.git",
-      "state" : {
-        "revision" : "ce592ae52f982c847a4efc0dd881cc9eb32d29f2",
-        "version" : "1.6.4"
-      }
-    },
     {
       "identity" : "vlckit-spm",
       "kind" : "remoteSourceControl",

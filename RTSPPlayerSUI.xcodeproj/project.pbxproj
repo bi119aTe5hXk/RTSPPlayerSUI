@@ -18,10 +18,6 @@
 		8658465D2D82B46200A80542 /* StreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8658465C2D82B45C00A80542 /* StreamView.swift */; };
 		866525CA2F6FC67A00A4B9B6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866525C92F6FC67400A4B9B6 /* SettingsView.swift */; };
 		866525CC2F6FCB2E00A4B9B6 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866525CB2F6FCB2A00A4B9B6 /* SettingsVC.swift */; };
-		86C080FF2E3B476C00D48056 /* FFmpegKit in Frameworks */ = {isa = PBXBuildFile; productRef = 86C080FE2E3B476C00D48056 /* FFmpegKit */; };
-		86C081012E3B476C00D48056 /* LibMPV in Frameworks */ = {isa = PBXBuildFile; productRef = 86C081002E3B476C00D48056 /* LibMPV */; };
-		86C081032E3B476C00D48056 /* Libffmpeg in Frameworks */ = {isa = PBXBuildFile; productRef = 86C081022E3B476C00D48056 /* Libffmpeg */; };
-		86C081052E3B476C00D48056 /* MPVKit in Frameworks */ = {isa = PBXBuildFile; productRef = 86C081042E3B476C00D48056 /* MPVKit */; };
 		86C081072E3B4EC600D48056 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C081062E3B4EBB00D48056 /* PlayerView.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,10 +43,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86C081052E3B476C00D48056 /* MPVKit in Frameworks */,
-				86C080FF2E3B476C00D48056 /* FFmpegKit in Frameworks */,
-				86C081032E3B476C00D48056 /* Libffmpeg in Frameworks */,
-				86C081012E3B476C00D48056 /* LibMPV in Frameworks */,
 				473CFB892A2E488E0076F5DD /* VLCKitSPM in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,10 +120,6 @@
 			name = RTSPPlayer;
 			packageProductDependencies = (
 				473CFB882A2E488E0076F5DD /* VLCKitSPM */,
-				86C080FE2E3B476C00D48056 /* FFmpegKit */,
-				86C081002E3B476C00D48056 /* LibMPV */,
-				86C081022E3B476C00D48056 /* Libffmpeg */,
-				86C081042E3B476C00D48056 /* MPVKit */,
 			);
 			productName = RTSPPlayerSUI;
 			productReference = 473CFB592A2DD8630076F5DD /* RTSPPlayer.app */;
@@ -163,7 +151,6 @@
 			mainGroup = 473CFB502A2DD8630076F5DD;
 			packageReferences = (
 				473CFB872A2E488E0076F5DD /* XCRemoteSwiftPackageReference "vlckit-spm" */,
-				86C080FD2E3B476C00D48056 /* XCRemoteSwiftPackageReference "MPVKit" */,
 			);
 			productRefGroup = 473CFB5A2A2DD8630076F5DD /* Products */;
 			projectDirPath = "";
@@ -459,14 +446,6 @@
 				kind = branch;
 			};
 		};
-		86C080FD2E3B476C00D48056 /* XCRemoteSwiftPackageReference "MPVKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/karelrooted/MPVKit";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -474,26 +453,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 473CFB872A2E488E0076F5DD /* XCRemoteSwiftPackageReference "vlckit-spm" */;
 			productName = VLCKitSPM;
-		};
-		86C080FE2E3B476C00D48056 /* FFmpegKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 86C080FD2E3B476C00D48056 /* XCRemoteSwiftPackageReference "MPVKit" */;
-			productName = FFmpegKit;
-		};
-		86C081002E3B476C00D48056 /* LibMPV */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 86C080FD2E3B476C00D48056 /* XCRemoteSwiftPackageReference "MPVKit" */;
-			productName = LibMPV;
-		};
-		86C081022E3B476C00D48056 /* Libffmpeg */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 86C080FD2E3B476C00D48056 /* XCRemoteSwiftPackageReference "MPVKit" */;
-			productName = Libffmpeg;
-		};
-		86C081042E3B476C00D48056 /* MPVKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 86C080FD2E3B476C00D48056 /* XCRemoteSwiftPackageReference "MPVKit" */;
-			productName = MPVKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
